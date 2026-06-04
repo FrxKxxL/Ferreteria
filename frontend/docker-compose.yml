@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    image: frxxkl/ferreteria-backend:latest
+    ports:
+      - "5000:3000" 
+    environment:
+      - DB_USER=sa
+      - DB_PASSWORD=Roki2006**
+      - DB_SERVER=sqlserver
+      - DB_DATABASE=Ferreteria
+      - JWT_SECRET=FerreteriaSecret2026
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Roki2006**
